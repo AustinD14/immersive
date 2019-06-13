@@ -13,8 +13,14 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    You are logged in!
+                    
+                    @if(count($posts) < 1)
+                    <p>No posts created</p>
+                    @else
+                        @foreach($posts as $post)
+                        <p> {{$post->title}}</p>
+                        @endforeach
+                    @endif
                 </div>
             </div>
         </div>
